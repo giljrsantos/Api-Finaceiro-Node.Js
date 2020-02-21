@@ -1,0 +1,37 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <h2>Dízimo</h2>
+    <a href="/divida/new" class="btn btn-success">Cadastrar Nova Divida</a>
+    <hr>
+    <table class="table text-center table-bordered">
+        <thead>
+            <tr>
+                <th>Dividendo</th>
+                <th>Valor</th>
+                <th>Data</th>
+                <th>Situação</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% dividas.forEach(divida => { %>
+            <tr>
+                <td><%= divida.dividendo %></td>
+                <td><%= divida.valor_divida %></td>
+                <td><%= divida.data_divida %></td>
+                <td>
+                    <% if (divida.situacao == 0 ) {%>
+                        Aberto
+                    <% } else {%>
+                        Pago
+                    <% } %>
+                </td>
+                <td><%= divida.id %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include ('../partials/footer.ejs') %>

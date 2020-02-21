@@ -1,0 +1,31 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <h2>Dízimo</h2>
+    <a href="/dizimo/new" class="btn btn-success">Cadastrar Novo Dizimo</a>
+    <hr>
+    <table class="table text-center table-bordered">
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Valor Real</th>
+                <th>Valor Dízimo</th>
+                <th>Data</th>
+                <th>Slug</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% dizimos.forEach(dizimo => { %>
+            <tr>
+                <td><%= dizimo.descricao %></td>
+                <td><%= dizimo.valorreal %></td>
+                <td><%= dizimo.valordizimo %></td>
+                <td><%= dizimo.data %></td>
+                <td><%= dizimo.slug %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include ('../partials/footer.ejs') %>

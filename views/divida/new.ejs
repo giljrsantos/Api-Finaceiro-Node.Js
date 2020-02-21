@@ -1,0 +1,42 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h2>Cadastrar Divida</h2>
+        </div>
+        <div class="card-body">
+
+            <form action="/divida/save" method="post">
+                <div class="form-row">
+                  <div class="col-3">
+                    <label class="font-weight-bold" for="">Categorias</label>
+                    <select name="cat" class="form-control">
+                        <% categorias.forEach((categoria) => { %>
+                            <option value="<%= categoria.id %>"><%= categoria.titulo %></option>
+                        <% }) %>
+                    </select>                      
+                  </div>
+                  <div class="col-3">
+                    <label class="font-weight-bold" for="">Valor</label>
+                    <input type="text" name="valor_divida" class="form-control" placeholder="Valor Divida">
+                  </div>                  
+                  <div class="col-3">
+                    <label class="font-weight-bold" for="">Dividendo</label>
+                    <input type="text" name="dividendo" class="form-control" placeholder="Dividendo">
+                  </div>
+                  <div class="col-3">
+                    <label class="font-weight-bold" for="">Data Divida</label>
+                    <input type="date" name="data_divida" class="form-control" id="data" placeholder="Data Divida">
+                  </div>                  
+                </div>
+                    <button class="btn btn-success btn-block mt-4">Cadastrar</button>              
+            </form>
+
+
+
+        </div>
+    </div>
+</div>
+<%- include ('../partials/footer.ejs') %>

@@ -1,0 +1,42 @@
+<%- include ('../partials/header.ejs') %>
+<%- include ('../partials/navbar.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h2>Cadastrar Dízimo</h2>
+        </div>
+        <div class="card-body">
+
+            <form action="/dizimo/save" method="post">
+                <div class="form-row">
+                  <div class="col-3">
+                    <label class="font-weight-bold" for="">Categorias</label>
+                    <select name="cat" class="form-control">
+                        <% categorias.forEach((categoria) => { %>
+                            <option value="<%= categoria.id %>"><%= categoria.titulo %></option>
+                        <% }) %>
+                    </select>                      
+                  </div>  
+                  <div class="col-3">
+                    <label class="font-weight-bold" for="">Valor Recebido</label>
+                    <input type="text" name="valorreal" class="form-control" placeholder="Valor">
+                  </div>
+                  <div class="col-3">
+                    <label class="font-weight-bold" for="">Data Dízimo</label>
+                    <input type="date" name="data" class="form-control" id="data" placeholder="Data">
+                  </div>
+                  <div class="col-3">
+                    <label class="font-weight-bold" for="">Descrição</label>
+                    <input type="text" name="descricao" class="form-control" placeholder="Descrição">
+                  </div>                  
+                </div>
+                    <button class="btn btn-success btn-block mt-4">Cadastrar</button>              
+            </form>
+
+
+
+        </div>
+    </div>
+</div>
+<%- include ('../partials/footer.ejs') %>
